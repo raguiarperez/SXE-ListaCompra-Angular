@@ -1,31 +1,31 @@
-import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import {async, TestBed} from '@angular/core/testing';
+import {ListaComponent} from './app.component';
 
-describe('AppComponent', () => {
+describe('ListaProductosComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        ListaComponent
       ],
     }).compileComponents();
   }));
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(ListaComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Listadecompra'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  it(`should have as title 'listaCompra'`, () => {
+    const fixture = TestBed.createComponent(ListaComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('Listadecompra');
+    expect(app.title).toEqual('listaCompra');
   });
 
   it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(ListaComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('Listadecompra app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('listaCompra app is running!');
   });
 });
