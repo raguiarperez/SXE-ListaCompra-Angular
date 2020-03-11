@@ -1,15 +1,26 @@
-<table style="width: 100%; border: 1px solid black;">
-  <tr>
-    <th>comprado</th>
-    <th>producto</th>
-    <th>descuento</th>
-  </tr>
-  <tr *ngFor="let compra of compras; index as i;">
-    <td>
-      <input [(ngModel)]="compra.comprado" [value]=true name="comprado-{{i}}" type="radio"> Si
-      <input [(ngModel)]="compra.comprado" [value]=false name="comprado-{{i}}" type="radio"> No
-    </td>
-    <td>{{compra.comprar}}</td>
-    <td>{{compra.descuento}}</td>
-  </tr>
-</table>
+<router-outlet></router-outlet>
+
+
+<div *ngIf="( authComponent.user | async) as user; else login" class="loginDiv">{{user.email}}
+  - {{user.displayName}}</div>
+<br/><br/>
+<button (click)="authComponent.logout()" class="btn btn-secondary">OUT</button>
+<br/><br/>
+
+<ng-template #login>
+  <div class="loginDiv">
+    <br/><br/>
+    <button (click)="authComponent.login()" class="btn btn-primary">
+      <i class="far fa-envelope"></i>
+      Email Login
+    </button>
+    <br/><br/>
+    <button (click)="authComponent.glogin()" class="btn btn-danger">
+      <i class="fab fa-google"></i>
+      Google Login
+    </button>
+  </div>
+</ng-template>
+
+
+<app-lista-compra></app-lista-compra>
